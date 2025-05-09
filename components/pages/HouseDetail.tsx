@@ -103,15 +103,15 @@ const HouseDetailContent = ({ id }: { id: string }) => {
               <div className="md:col-span-2">
                 {house.id === "house1" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaArmandoBad className="w-[60%] mx-auto" />
+                    <CasaArmandoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house2" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaMedioBad className="w-[60%] mx-auto" />
+                    <CasaMedioBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house3" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaNidoBad className="w-[60%] mx-auto" />
+                    <CasaNidoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : (
                   <SecurityVisualizer
@@ -140,15 +140,15 @@ const HouseDetailContent = ({ id }: { id: string }) => {
               <div className="md:col-span-2">
                 {house.id === "house1" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaArmandoGood className="w-[60%] mx-auto" />
+                    <CasaArmandoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house2" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaMedioGood className="w-[60%] mx-auto" />
+                    <CasaMedioGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house3" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaNidoGood className="w-[60%] mx-auto" />
+                    <CasaNidoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : (
                   <SecurityVisualizer
@@ -179,11 +179,11 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                   </div>
                   <div className="p-4 flex justify-center">
                     {house.id === "house1" ? (
-                      <CasaArmandoBad className="w-[60%] mx-auto" />
+                      <CasaArmandoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : house.id === "house2" ? (
-                      <CasaMedioBad className="w-[60%] mx-auto" />
+                      <CasaMedioBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : house.id === "house3" ? (
-                      <CasaNidoBad className="w-[60%] mx-auto" />
+                      <CasaNidoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : (
                       <SecurityVisualizer
                         floorPlan={house.floorPlan}
@@ -201,11 +201,11 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                   </div>
                   <div className="p-4 flex justify-center">
                     {house.id === "house1" ? (
-                      <CasaArmandoGood className="w-[60%] mx-auto" />
+                      <CasaArmandoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : house.id === "house2" ? (
-                      <CasaMedioGood className="w-[60%] mx-auto" />
+                      <CasaMedioGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : house.id === "house3" ? (
-                      <CasaNidoGood className="w-[60%] mx-auto" />
+                      <CasaNidoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                     ) : (
                       <SecurityVisualizer
                         floorPlan={house.floorPlan}
@@ -637,34 +637,34 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
                       <div>
                         <h4 className="font-medium">Cableado e instalacion en el rack</h4>
                         <p className="text-sm text-muted-foreground">Se cableará lo que haga falta y se instalarán los equipos en el rack.</p>
                       </div>
-                      <Badge variant="outline" className="text-sm font-medium">Día 1</Badge>
+                      <Badge variant="outline" className="text-sm font-medium mt-1 sm:mt-0 self-start sm:self-center">Día 1</Badge>
                     </div>
                     <div className="w-full h-1 bg-muted rounded-full">
                       <div className="h-1 bg-primary rounded-full" style={{ width: "20%" }} />
                     </div>
 
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
                       <div>
                         <h4 className="font-medium">Instalación de cámaras</h4>
                         <p className="text-sm text-muted-foreground">Configuración de las mismas.</p>
                       </div>
-                      <Badge variant="outline" className="text-sm font-medium">Día 2</Badge>
+                      <Badge variant="outline" className="text-sm font-medium mt-1 sm:mt-0 self-start sm:self-center">Día 2</Badge>
                     </div>
                     <div className="w-full h-1 bg-muted rounded-full">
                       <div className="h-1 bg-primary rounded-full" style={{ width: "40%" }} />
                     </div>
 
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
                       <div>
                         <h4 className="font-medium">Configuración de cámaras</h4>
                         <p className="text-sm text-muted-foreground">Puesta a punto.</p>
                       </div>
-                      <Badge variant="outline" className="text-sm font-medium">Días 3-4</Badge>
+                      <Badge variant="outline" className="text-sm font-medium mt-1 sm:mt-0 self-start sm:self-center">Días 3-4</Badge>
                     </div>
                     <div className="w-full h-1 bg-muted rounded-full">
                       <div className="h-1 bg-primary rounded-full" style={{ width: "70%" }} />

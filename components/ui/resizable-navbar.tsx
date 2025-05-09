@@ -76,6 +76,13 @@ export const Navbar = ({ children, className, behavior = 'fixed-shrink' }: Navba
     <motion.div
       // ref={ref} // Not needed for window scroll
       className={navbarClassName}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.4,
+        delay: 0.1,
+        ease: [0.23, 1, 0.32, 1]
+      }}
     >
       {React.Children.map(children, (child: React.ReactNode) =>
         React.isValidElement(child)
@@ -159,9 +166,9 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
         width: visible ? "90%" : "100%",
-        paddingRight: visible ? "12px" : "0px",
-        paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
+        paddingRight: visible ? "12px" : "16px",
+        paddingLeft: visible ? "12px" : "16px",
+        borderRadius: visible ? "12px" : "2rem",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -170,7 +177,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden bg-background/20 border border-foreground/20",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between py-3 lg:hidden bg-background/80 backdrop-blur-md border border-foreground/10",
         className,
       )}
     >
@@ -186,7 +193,7 @@ export const MobileNavHeader = ({
   return (
     <div
       className={cn(
-        "flex w-full flex-row items-center justify-between",
+        "flex w-full flex-row items-center justify-between px-2",
         className,
       )}
     >
@@ -205,11 +212,12 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-xl bg-background/95 backdrop-blur-lg px-6 py-8 shadow-lg dark:shadow-neutral-900/20 border border-foreground/10 dark:bg-neutral-900/95",
             className,
           )}
         >
@@ -227,10 +235,37 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+  return (
+    <motion.button
+      whileTap={{ scale: 0.9 }}
+      onClick={onClick}
+      className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-foreground/5 text-foreground transition-colors hover:bg-foreground/10"
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+    >
+      <AnimatePresence initial={false} mode="wait">
+        {isOpen ? (
+          <motion.div
+            key="close"
+            initial={{ opacity: 0, rotate: -45 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            exit={{ opacity: 0, rotate: -45 }}
+            transition={{ duration: 0.2 }}
+          >
+            <IconX className="h-5 w-5" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="menu"
+            initial={{ opacity: 0, rotate: 45 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            exit={{ opacity: 0, rotate: 45 }}
+            transition={{ duration: 0.2 }}
+          >
+            <IconMenu2 className="h-5 w-5" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.button>
   );
 };
 
@@ -238,9 +273,11 @@ export const NavbarLogo = () => {
   return (
     <a
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black dark:text-white"
+      className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-foreground"
     >
-      <IconHome className="h-6 w-6" />
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+        <IconHome className="h-5 w-5 text-primary" />
+      </div>
     </a>
   );
 };

@@ -52,7 +52,7 @@ export const GlowingStarsDescription = ({
   const isLight = theme === "light"
 
   return (
-    <p className={cn("text-base max-w-[20rem] font-normal leading-tight", 
+    <p className={cn("text-sm sm:text-base max-w-[20rem] font-normal leading-tight", 
       isLight ? "text-gray-700" : "text-gray-300", 
       className)}
     >
@@ -72,7 +72,7 @@ export const GlowingStarsTitle = ({
   const isLight = theme === "light"
 
   return (
-    <h2 className={cn("text-3xl mb-2 font-medium tracking-tight", 
+    <h2 className={cn("text-2xl sm:text-3xl mb-2 font-medium tracking-tight", 
       isLight ? "text-gray-900" : "text-white", 
       className)}
     >

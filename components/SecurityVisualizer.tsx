@@ -27,8 +27,8 @@ const SecurityVisualizer = ({ floorPlan, cameras, showCoverage, showOverlap = fa
   }, [showCoverage])
 
   return (
-    <Card className="relative overflow-hidden w-full h-[600px] flex justify-center items-center">
-      <div className="relative w-3/4 h-auto" style={{ maxHeight: "75%" }}>
+    <Card className="relative overflow-hidden w-full h-auto aspect-[4/3] sm:aspect-video md:h-[500px] lg:h-[600px] flex justify-center items-center">
+      <div className="relative w-full sm:w-3/4 h-auto" style={{ maxHeight: "90%" }}>
         <img src={floorPlan || "/placeholder.svg"} alt="Floor Plan" className="w-full h-auto object-contain" />
 
         {cameras.map((camera) => (

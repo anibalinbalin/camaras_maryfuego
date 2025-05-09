@@ -39,8 +39,8 @@ const SecurityVideoChapter = () => {
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">
               <div className="bg-black/30 px-4 py-2 rounded-md backdrop-blur-sm">
-                <div className="text-sm">Impressive</div>
-                <div className="text-xl font-semibold">Streaming Responsiveness</div>
+                <div className="text-xs sm:text-sm">Impressive</div>
+                <div className="text-lg sm:text-xl font-semibold">Streaming Responsiveness</div>
               </div>
             </div>
           </div>
@@ -57,8 +57,8 @@ const SecurityVideoChapter = () => {
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">
               <div className="bg-black/30 px-4 py-2 rounded-md backdrop-blur-sm">
-                <div className="text-sm">Unrivaled</div>
-                <div className="text-xl font-semibold">Video Playback Experience</div>
+                <div className="text-xs sm:text-sm">Unrivaled</div>
+                <div className="text-lg sm:text-xl font-semibold">Video Playback Experience</div>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ const SecurityVideoChapter = () => {
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">
               <div className="bg-black/30 px-4 py-2 rounded-md backdrop-blur-sm">
-                <div className="text-sm">Effortless</div>
-                <div className="text-xl font-semibold">Video Retrieval</div>
+                <div className="text-xs sm:text-sm">Effortless</div>
+                <div className="text-lg sm:text-xl font-semibold">Video Retrieval</div>
               </div>
             </div>
           </div>

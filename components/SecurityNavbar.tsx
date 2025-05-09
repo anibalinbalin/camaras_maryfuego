@@ -88,6 +88,7 @@ export default function SecurityNavbar() {
                 variant="secondary"
                 onClick={toggleTheme}
                 aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+                className="h-9 w-9 p-0 flex items-center justify-center"
               >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </NavbarButton>
@@ -96,17 +97,39 @@ export default function SecurityNavbar() {
           </MobileNavHeader>
 
           <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-            {navItems.map((item) => (
+            <div className="w-full mb-2 pb-2 border-b border-border/40">
+              <h3 className="text-xs font-medium uppercase text-muted-foreground mb-3">Casas</h3>
+              <div className="flex flex-col w-full space-y-1">
+                {navItems.slice(0, 3).map((item) => (
+                  <a
+                    key={item.link}
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="relative flex items-center gap-3 w-full py-2.5 px-3 rounded-lg text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
+                  >
+                    <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10">
+                      {item.icon}
+                    </div>
+                    <span className="font-medium">{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            
+            <div className="w-full">
+              <h3 className="text-xs font-medium uppercase text-muted-foreground mb-3">Información</h3>
               <a
-                key={item.link}
-                href={item.link}
+                key={navItems[3].link}
+                href={navItems[3].link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative flex items-center gap-2 w-full py-3 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="relative flex items-center gap-3 w-full py-2.5 px-3 rounded-lg text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
               >
-                {item.icon}
-                <span className="block">{item.name}</span>
+                <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10">
+                  {navItems[3].icon}
+                </div>
+                <span className="font-medium">{navItems[3].name}</span>
               </a>
-            ))}
+            </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>

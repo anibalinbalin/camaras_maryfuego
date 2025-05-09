@@ -15,26 +15,28 @@ const CameraTable = ({ cameras, title }: CameraTableProps) => {
         <Cctv className={`h-5 w-5 ${cameras[0]?.isNew ? "text-camera-new" : "text-camera-old"}`} />
         <h3 className="font-medium">{title}</h3>
       </div>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Cámara</TableHead>
-            <TableHead>Ubicación</TableHead>
-            <TableHead>Tipo</TableHead>
-            <TableHead className="text-right">Cobertura</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {cameras.map((camera) => (
-            <TableRow key={camera.id}>
-              <TableCell className="font-medium">{camera.id}</TableCell>
-              <TableCell>{camera.name}</TableCell>
-              <TableCell>{camera.type}</TableCell>
-              <TableCell className="text-right">{camera.coverage}%</TableCell>
+      <div className="overflow-x-auto">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Cámara</TableHead>
+              <TableHead>Ubicación</TableHead>
+              <TableHead>Tipo</TableHead>
+              <TableHead className="text-right">Cobertura</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {cameras.map((camera) => (
+              <TableRow key={camera.id}>
+                <TableCell className="font-medium">{camera.id}</TableCell>
+                <TableCell>{camera.name}</TableCell>
+                <TableCell>{camera.type}</TableCell>
+                <TableCell className="text-right">{camera.coverage}%</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </Card>
   )
 }

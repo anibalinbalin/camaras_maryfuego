@@ -86,18 +86,18 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
           type="button"
           onClick={() => setFilter(null)}
           onKeyDown={(e) => e.key === 'Enter' && setFilter(null)}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-1.5 transition-colors ${
+          className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1 sm:gap-1.5 transition-colors ${
             filter === null ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
-          <Home className="h-4 w-4" />
+          <Home className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           Todas las casas
         </button>
         <button
           type="button"
           onClick={() => setFilter('armando')}
           onKeyDown={(e) => e.key === 'Enter' && setFilter('armando')}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
             filter === 'armando' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
@@ -107,7 +107,7 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
           type="button"
           onClick={() => setFilter('medio')}
           onKeyDown={(e) => e.key === 'Enter' && setFilter('medio')}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
             filter === 'medio' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
@@ -117,7 +117,7 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
           type="button"
           onClick={() => setFilter('nido')}
           onKeyDown={(e) => e.key === 'Enter' && setFilter('nido')}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
             filter === 'nido' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
@@ -166,7 +166,7 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
               {/* Header with Image */}
               <div className="relative h-56 md:h-64 overflow-hidden bg-gradient-to-br from-muted/50 to-muted/20 flex-shrink-0 border-b">
                 <div className="absolute inset-0 flex items-center justify-center p-6">
-                  <div className="relative w-full h-full max-h-40 md:max-h-48">
+                  <div className="relative w-full h-full max-h-32 sm:max-h-40 md:max-h-48">
                     <Image
                       priority // Prioritize loading image for the modal
                       src={active.src || "/placeholder.svg"}
