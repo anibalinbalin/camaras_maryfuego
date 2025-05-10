@@ -145,6 +145,22 @@ export const houses: House[] = [
         position: { x: 50, y: 70 },
         coverage: 45,
       },
+      {
+        id: "cam6",
+        name: "Externa ",
+        type: "Hikvision",
+        isNew: false,
+        position: { x: 50, y: 70 },
+        coverage: 45,
+      },
+      {
+        id: "cam7",
+        name: "Esquina entrada ",
+        type: "Hikvision",
+        isNew: false,
+        position: { x: 50, y: 70 },
+        coverage: 45,
+      },
     ],
     newCameras: [
       {
