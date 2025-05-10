@@ -1,11 +1,20 @@
 "use client"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
-import type { ThemeProviderProps } from "next-themes/dist/types"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { ReactNode } from "react"
+
+type ThemeProviderProps = {
+  children: ReactNode
+  [key: string]: any
+}
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = useState(false)
+
   // Add debugging to track theme initialization
   useEffect(() => {
+    setMounted(true)
+    
     // Check if localStorage is available (client-side)
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem(props.storageKey || "theme")

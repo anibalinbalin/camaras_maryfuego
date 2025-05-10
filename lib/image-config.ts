@@ -304,7 +304,7 @@ export function getImagePath(houseId: string, isDarkTheme: boolean, stepIndex: n
   const house = houseImageConfig[houseId] || houseImageConfig.house1 // Default to house1 if not found
   const step = house.steps[stepIndex] || house.steps[0] // Default to first step if not found
 
-  const houseDirectory = houseId === "house2" ? "medio" : houseId === "house3" ? "nido" : "armando"
+  const houseDirectory = houseId === "house2" ? "lote04" : houseId === "house3" ? "lote06" : "lote03"
   const themeDirectory = isDarkTheme ? "night" : "day"
   const suffix = isDarkTheme ? "_night" : ""
 

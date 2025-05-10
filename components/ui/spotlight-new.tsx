@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 
@@ -25,19 +25,34 @@ export const Spotlight = ({
 }: SpotlightProps = {}) => {
   const { theme } = useTheme();
   const isLight = theme === "light";
+  // Add mounted state to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+
+  // Only determine theme after component is mounted on client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
-  // Enhanced gradient values with higher opacity and more contrast
-  const gradientFirst = isLight 
-    ? "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 25%, .2) 0, hsla(210, 100%, 25%, .12) 50%, hsla(210, 100%, 25%, 0) 80%)"
-    : "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 85%, .15) 0, hsla(210, 100%, 55%, .08) 50%, hsla(210, 100%, 45%, 0) 80%)";
-    
-  const gradientSecond = isLight
-    ? "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 25%, .16) 0, hsla(210, 100%, 25%, .08) 80%, transparent 100%)"
-    : "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .12) 0, hsla(210, 100%, 55%, .06) 80%, transparent 100%)";
-    
-  const gradientThird = isLight
-    ? "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 25%, .12) 0, hsla(210, 100%, 25%, .06) 80%, transparent 100%)"
-    : "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .1) 0, hsla(210, 100%, 45%, .05) 80%, transparent 100%)";
+  // Default values for server-side rendering (will be replaced after client hydration)
+  let gradientFirst = "transparent";
+  let gradientSecond = "transparent";
+  let gradientThird = "transparent";
+  
+  // Only apply theme-dependent styles on the client after mounting
+  if (mounted) {
+    // Enhanced gradient values with higher opacity and more contrast
+    gradientFirst = isLight 
+      ? "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 25%, .2) 0, hsla(210, 100%, 25%, .12) 50%, hsla(210, 100%, 25%, 0) 80%)"
+      : "radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(210, 100%, 85%, .15) 0, hsla(210, 100%, 55%, .08) 50%, hsla(210, 100%, 45%, 0) 80%)";
+      
+    gradientSecond = isLight
+      ? "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 25%, .16) 0, hsla(210, 100%, 25%, .08) 80%, transparent 100%)"
+      : "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .12) 0, hsla(210, 100%, 55%, .06) 80%, transparent 100%)";
+      
+    gradientThird = isLight
+      ? "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 25%, .12) 0, hsla(210, 100%, 25%, .06) 80%, transparent 100%)"
+      : "radial-gradient(50% 50% at 50% 50%, hsla(210, 100%, 85%, .1) 0, hsla(210, 100%, 45%, .05) 80%, transparent 100%)";
+  }
 
   return (
     <motion.div
@@ -45,104 +60,96 @@ export const Spotlight = ({
         opacity: 0,
       }}
       animate={{
-        opacity: 1,
+        opacity: mounted ? 1 : 0, // Only animate to visible after mounted
       }}
       transition={{
         duration: 1.5,
       }}
       className="pointer-events-none absolute inset-0 h-full w-full"
     >
-      <motion.div
-        animate={{
-          x: [0, xOffset, 0],
-        }}
-        transition={{
-          duration,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-        className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
-      >
-        <div
-          style={{
-            transform: `translateY(${translateY}px) rotate(-45deg)`,
-            background: gradientFirst,
-            width: `${width}px`,
-            height: `${height}px`,
-            filter: "blur(2px)",
-          }}
-          className="absolute top-0 left-0"
-        />
+      {mounted && ( // Only render the gradient effects after mounting
+        <>
+          <div
+            className="absolute top-0 left-0 w-screen h-screen z-40 pointer-events-none"
+            style={{
+              transform: `translateX(${xOffset / 2}px)`,
+            }}
+          >
+            <div
+              style={{
+                transform: `translateY(${translateY}px) rotate(-45deg)`,
+                background: gradientFirst,
+                width: `${width}px`,
+                height: `${height}px`,
+                filter: "blur(2px)",
+              }}
+              className="absolute top-0 left-0"
+            />
 
-        <div
-          style={{
-            transform: "rotate(-45deg) translate(5%, -50%)",
-            background: gradientSecond,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-            filter: "blur(1px)",
-          }}
-          className="absolute top-0 left-0 origin-top-left"
-        />
+            <div
+              style={{
+                transform: "rotate(-45deg) translate(5%, -50%)",
+                background: gradientSecond,
+                width: `${smallWidth}px`,
+                height: `${height}px`,
+                filter: "blur(1px)",
+              }}
+              className="absolute top-0 left-0 origin-top-left"
+            />
 
-        <div
-          style={{
-            transform: "rotate(-45deg) translate(-180%, -70%)",
-            background: gradientThird,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-            filter: "blur(1px)",
-          }}
-          className="absolute top-0 left-0 origin-top-left"
-        />
-      </motion.div>
+            <div
+              style={{
+                transform: "rotate(-45deg) translate(-180%, -70%)",
+                background: gradientThird,
+                width: `${smallWidth}px`,
+                height: `${height}px`,
+                filter: "blur(1px)",
+              }}
+              className="absolute top-0 left-0 origin-top-left"
+            />
+          </div>
 
-      <motion.div
-        animate={{
-          x: [0, -xOffset, 0],
-        }}
-        transition={{
-          duration,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-        className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none"
-      >
-        <div
-          style={{
-            transform: `translateY(${translateY}px) rotate(45deg)`,
-            background: gradientFirst,
-            width: `${width}px`,
-            height: `${height}px`,
-            filter: "blur(2px)",
-          }}
-          className="absolute top-0 right-0"
-        />
+          <div
+            className="absolute top-0 right-0 w-screen h-screen z-40 pointer-events-none"
+            style={{
+              transform: `translateX(${-xOffset / 2}px)`,
+            }}
+          >
+            <div
+              style={{
+                transform: `translateY(${translateY}px) rotate(45deg)`,
+                background: gradientFirst,
+                width: `${width}px`,
+                height: `${height}px`,
+                filter: "blur(2px)",
+              }}
+              className="absolute top-0 right-0"
+            />
 
-        <div
-          style={{
-            transform: "rotate(45deg) translate(-5%, -50%)",
-            background: gradientSecond,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-            filter: "blur(1px)",
-          }}
-          className="absolute top-0 right-0 origin-top-right"
-        />
+            <div
+              style={{
+                transform: "rotate(45deg) translate(-5%, -50%)",
+                background: gradientSecond,
+                width: `${smallWidth}px`,
+                height: `${height}px`,
+                filter: "blur(1px)",
+              }}
+              className="absolute top-0 right-0 origin-top-right"
+            />
 
-        <div
-          style={{
-            transform: "rotate(45deg) translate(180%, -70%)",
-            background: gradientThird,
-            width: `${smallWidth}px`,
-            height: `${height}px`,
-            filter: "blur(1px)",
-          }}
-          className="absolute top-0 right-0 origin-top-right"
-        />
-      </motion.div>
+            <div
+              style={{
+                transform: "rotate(45deg) translate(180%, -70%)",
+                background: gradientThird,
+                width: `${smallWidth}px`,
+                height: `${height}px`,
+                filter: "blur(1px)",
+              }}
+              className="absolute top-0 right-0 origin-top-right"
+            />
+          </div>
+        </>
+      )}
     </motion.div>
   );
 }; 

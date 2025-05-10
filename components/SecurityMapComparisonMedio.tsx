@@ -5,8 +5,6 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ShieldCheck, GripVertical } from "lucide-react"
-import { DotPlacementComponent as CasaMedioBad } from "@/components/floorplans/Medio/CasaMedioBad"
-import { DotPlacementComponent as CasaMedioGood } from "@/components/floorplans/Medio/CasaMedioGood"
 import { cn } from "@/lib/utils"
 
 interface SecurityMapComparisonProps {
@@ -125,7 +123,11 @@ const SecurityMapComparisonMedio = ({
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
               }}
             >
-              <CasaMedioBad className="w-full" />
+              <img
+                src="/images/houses/medio/coverage_comparision/house2_bad.png"
+                alt="Cobertura Actual"
+                className="w-full"
+              />
               {showLabels && (
                 <div className="absolute top-2 left-2 z-30 bg-black/60 text-white text-xs px-2 py-1 rounded">
                   Cobertura Actual
@@ -135,7 +137,11 @@ const SecurityMapComparisonMedio = ({
 
             {/* Proposed Coverage (Good) */}
             <div className="relative z-0">
-              <CasaMedioGood className="w-full" />
+              <img
+                src="/images/houses/medio/coverage_comparision/house2_good.png"
+                alt="Cobertura Propuesta"
+                className="w-full"
+              />
               {showLabels && (
                 <div className="absolute top-2 right-2 z-30 bg-black/60 text-white text-xs px-2 py-1 rounded">
                   Cobertura Propuesta
@@ -149,24 +155,39 @@ const SecurityMapComparisonMedio = ({
               style={{ left: `${sliderPosition}%` }}
             >
               <button
+                type="button"
                 className={cn(
-                  "absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-white rounded-full shadow-md flex items-center justify-center cursor-ew-resize border border-primary/20 transition-all duration-200",
+                  "absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-background dark:bg-zinc-800 rounded-full shadow-md flex flex-col items-center justify-center gap-1 cursor-ew-resize border border-primary/20 transition-all duration-200",
                   isDragging ? "scale-110" : "scale-100 hover:scale-105",
                 )}
                 aria-label="Drag to compare camera coverage"
               >
-                <GripVertical className="h-4 w-4 text-primary" />
+                {/* Three dots for better visibility in both light and dark modes */}
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                </div>
               </button>
             </div>
           </div>
 
           <div className="mt-4 flex justify-center gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-red-500" />
               <span className="text-xs">Cobertura Actual</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500" />
               <span className="text-xs">Cobertura Propuesta</span>
             </div>
           </div>

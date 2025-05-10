@@ -11,12 +11,12 @@ import SecurityVisualizer from "@/components/SecurityVisualizer"
 import ChapterNavigation from "@/components/ChapterNavigation"
 import CameraTable from "@/components/CameraTable"
 import Link from "next/link"
-import { DotPlacementComponent as CasaArmandoBad } from "@/components/floorplans/Armando/CasaArmandoBad"
-import { DotPlacementComponent as CasaArmandoGood } from "@/components/floorplans/Armando/CasaArmandoGood"
-import { DotPlacementComponent as CasaMedioBad } from "@/components/floorplans/Medio/CasaMedioBad"
-import { DotPlacementComponent as CasaMedioGood } from "@/components/floorplans/Medio/CasaMedioGood"
-import { DotPlacementComponent as CasaNidoBad } from "@/components/floorplans/Nido/CasaNidoBad"
-import { DotPlacementComponent as CasaNidoGood } from "@/components/floorplans/Nido/CasaNidoGood"
+import { DotPlacementComponent as CasaLote03Bad } from "@/components/floorplans/Lote03/CasaArmandoBad"
+import { DotPlacementComponent as CasaLote03Good } from "@/components/floorplans/Lote03/CasaArmandoGood"
+import { DotPlacementComponent as CasaLote04Bad } from "@/components/floorplans/Lote04/CasaMedioBad"
+import { DotPlacementComponent as CasaLote04Good } from "@/components/floorplans/Lote04/CasaMedioGood"
+import { DotPlacementComponent as CasaLote06Bad } from "@/components/floorplans/Lote06/CasaNidoBad"
+import { DotPlacementComponent as CasaLote06Good } from "@/components/floorplans/Lote06/CasaNidoGood"
 import { ExpandableEquipmentCard } from "@/components/ui/expandable-equipment-card"
 import { securityEquipmentData } from "@/components/SecurityEquipmentData"
 import SecurityMapComparison from "@/components/SecurityMapComparison"
@@ -103,15 +103,15 @@ const HouseDetailContent = ({ id }: { id: string }) => {
               <div className="md:col-span-2">
                 {house.id === "house1" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaArmandoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote03Bad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house2" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaMedioBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote04Bad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house3" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaNidoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote06Bad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : (
                   <SecurityVisualizer
@@ -140,15 +140,15 @@ const HouseDetailContent = ({ id }: { id: string }) => {
               <div className="md:col-span-2">
                 {house.id === "house1" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaArmandoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote03Good className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house2" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaMedioGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote04Good className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : house.id === "house3" ? (
                   <Card className="overflow-hidden flex justify-center items-center p-4">
-                    <CasaNidoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                    <CasaLote06Good className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
                   </Card>
                 ) : (
                   <SecurityVisualizer
@@ -179,11 +179,23 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                   </div>
                   <div className="p-4 flex justify-center">
                     {house.id === "house1" ? (
-                      <CasaArmandoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/armando/coverage_comparison/house1_bad.png" 
+                        alt="Cobertura actual" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : house.id === "house2" ? (
-                      <CasaMedioBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/medio/coverage_comparision/house2_bad.png" 
+                        alt="Cobertura actual" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : house.id === "house3" ? (
-                      <CasaNidoBad className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/nido/coverage_comparision/house3_bad.png" 
+                        alt="Cobertura actual" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : (
                       <SecurityVisualizer
                         floorPlan={house.floorPlan}
@@ -201,11 +213,23 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                   </div>
                   <div className="p-4 flex justify-center">
                     {house.id === "house1" ? (
-                      <CasaArmandoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/armando/coverage_comparison/house1_good.png" 
+                        alt="Cobertura propuesta" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : house.id === "house2" ? (
-                      <CasaMedioGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/medio/coverage_comparision/house2_good.png" 
+                        alt="Cobertura propuesta" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : house.id === "house3" ? (
-                      <CasaNidoGood className="w-full sm:w-3/4 md:w-[60%] mx-auto" />
+                      <img 
+                        src="/images/houses/nido/coverage_comparision/house3_good.png" 
+                        alt="Cobertura propuesta" 
+                        className="w-full sm:w-3/4 md:w-[60%] mx-auto"
+                      />
                     ) : (
                       <SecurityVisualizer
                         floorPlan={house.floorPlan}
@@ -224,7 +248,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-2xl font-bold">Comparaciones</h2>
             <p className="text-muted-foreground">
-              Comparacion de cobertura actual y propuesta.
+              Comparación de cobertura actual y propuesta.
             </p>
             {house.id === "house1" ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -240,25 +264,25 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Camera className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Se mejora la cobertura en un 85%.</span>
+                          <span className="text-sm">Se mejora la cobertura en un 138%.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Zap className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Eliminados 6 puntos ciegos principales.</span>
+                          <span className="text-sm">Eliminados 5 puntos ciegos principales.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Lock className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Seguridad perimetral con cobertura de 360.°</span>
+                          <span className="text-sm">Todo el  perimetro con cobertura.°</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Bell className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Detección de movimiento añadida a todos los puntos de entrada con AI.</span>
+                          <span className="text-sm">Detección de movimiento con AI a todos los puntos de entrada.</span>
                         </li>
                       </ul>
 
@@ -298,7 +322,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Camera className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Área de cobertura aumentada en un 80%</span>
+                          <span className="text-sm">Área de cobertura aumentada en un 31%</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
@@ -329,7 +353,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div className="flex flex-col items-center p-3 bg-muted/30 rounded-lg">
                             <span className="font-medium">Antes</span>
-                            <span className="text-2xl font-bold text-red-500 mt-1">35%</span>
+                            <span className="text-2xl font-bold text-red-500 mt-1">76%</span>
                             <span className="text-xs text-muted-foreground">Cobertura</span>
                           </div>
                           <div className="flex flex-col items-center p-3 bg-muted/30 rounded-lg">
@@ -346,7 +370,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
             ) : house.id === "house3" ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <SecurityMapComparisonNido title="Interactive Coverage Comparison" />
+                  <SecurityMapComparisonNido title="Comparación de coberturas" />
                 </div>
                 <div>
                   <Card>
@@ -357,7 +381,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
                             <Camera className="h-3 w-3 text-primary" />
                           </div>
-                          <span className="text-sm">Área de cobertura aumentada en un 90%</span>
+                          <span className="text-sm">Área de cobertura aumentada en un 58%</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="rounded-full bg-primary/10 p-1 mt-0.5">
@@ -388,7 +412,7 @@ const HouseDetailContent = ({ id }: { id: string }) => {
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div className="flex flex-col items-center p-3 bg-muted/30 rounded-lg">
                             <span className="font-medium">Antes</span>
-                            <span className="text-2xl font-bold text-red-500 mt-1">30%</span>
+                            <span className="text-2xl font-bold text-red-500 mt-1">63%</span>
                             <span className="text-xs text-muted-foreground">Cobertura</span>
                           </div>
                           <div className="flex flex-col items-center p-3 bg-muted/30 rounded-lg">

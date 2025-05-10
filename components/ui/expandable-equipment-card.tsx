@@ -17,7 +17,7 @@ export type EquipmentItem = {
   ctaText: string
   ctaLink?: string
   content: React.ReactNode | (() => React.ReactNode)
-  house?: 'armando' | 'medio' | 'nido' | 'all' // Optional property to specify which house the item belongs to
+  house?: 'lote03' | 'lote04' | 'lote06' | 'all' // Optional property to specify which house the item belongs to
 }
 
 interface ExpandableEquipmentCardProps {
@@ -95,33 +95,33 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
         </button>
         <button
           type="button"
-          onClick={() => setFilter('armando')}
-          onKeyDown={(e) => e.key === 'Enter' && setFilter('armando')}
+          onClick={() => setFilter('lote03')}
+          onKeyDown={(e) => e.key === 'Enter' && setFilter('lote03')}
           className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-            filter === 'armando' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
+            filter === 'lote03' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
-          Casa Armando
+          Casa Lote 03
         </button>
         <button
           type="button"
-          onClick={() => setFilter('medio')}
-          onKeyDown={(e) => e.key === 'Enter' && setFilter('medio')}
+          onClick={() => setFilter('lote04')}
+          onKeyDown={(e) => e.key === 'Enter' && setFilter('lote04')}
           className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-            filter === 'medio' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
+            filter === 'lote04' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
-          Casa Medio
+          Casa Lote 04
         </button>
         <button
           type="button"
-          onClick={() => setFilter('nido')}
-          onKeyDown={(e) => e.key === 'Enter' && setFilter('nido')}
+          onClick={() => setFilter('lote06')}
+          onKeyDown={(e) => e.key === 'Enter' && setFilter('lote06')}
           className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-            filter === 'nido' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
+            filter === 'lote06' ? 'bg-primary text-primary-foreground' : 'bg-muted hover:bg-primary/10'
           }`}
         >
-          Casa Nido
+          Casa Lote 06
         </button>
       </div>
 
@@ -215,7 +215,7 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
               <th className="p-3 text-left text-sm font-medium text-muted-foreground">Artículo</th>
               <th className="p-3 text-left text-sm font-medium text-muted-foreground">Descripción</th>
               {!filter && <th className="p-3 text-right text-sm font-medium text-muted-foreground">Cantidad</th>}
-              {filter && <th className="p-3 text-right text-sm font-medium text-muted-foreground">Casa {filter === 'armando' ? 'Armando' : filter === 'medio' ? 'Medio' : 'Nido'}</th>}
+              {filter && <th className="p-3 text-right text-sm font-medium text-muted-foreground">Casa {filter === 'lote03' ? 'Lote 03' : filter === 'lote04' ? 'Lote 04' : 'Lote 06'}</th>}
               <th className="p-3 text-center text-sm font-medium text-muted-foreground">Detalles</th>
             </tr>
           </thead>
@@ -265,19 +265,19 @@ export function ExpandableEquipmentCard({ items }: ExpandableEquipmentCardProps)
 // Helper function to determine quantities for specific houses
 function getItemQuantityForHouse(item: EquipmentItem, house: string) {
   const itemHouseMapping: Record<string, Record<string, number>> = {
-    "ucg-ultra": { armando: 1, medio: 1, nido: 1 },
-    "unifi-unvr": { armando: 1, medio: 1, nido: 1 },
-    "hdd-6tb": { armando: 4, medio: 4, nido: 4 },
-    "usw-lite-16-poe": { armando: 2, medio: 2, nido: 2 },
-    "uvc-g6-turret-w": { armando: 1, medio: 2, nido: 1 },
-    "uvc-g6-bullet-w": { armando: 2, medio: 2, nido: 2 },
-    "uvc-g6-ptz-b": { armando: 8, medio: 7, nido: 8 },
-    "g6-ptz-corner-mount": { armando: 7, medio: 0, nido: 0 },
-    "g5-ptz-corner-mount": { armando: 0, medio: 7, nido: 7 },
-    "u-poe-plus-plus": { armando: 8, medio: 7, nido: 8 },
-    "up-ai-port": { armando: 0, medio: 7, nido: 8 },
-    "uacc-ai-port-rm": { armando: 0, medio: 2, nido: 2 },
-    "rack-accessories": { armando: 1, medio: 1, nido: 1 },
+    "ucg-ultra": { lote03: 1, lote04: 1, lote06: 1 },
+    "unifi-unvr": { lote03: 1, lote04: 1, lote06: 1 },
+    "hdd-6tb": { lote03: 4, lote04: 4, lote06: 4 },
+    "usw-lite-16-poe": { lote03: 0, lote04: 1, lote06: 1 },
+    "uvc-g6-turret-w": { lote03: 2, lote04: 3, lote06: 4 },
+    "uvc-g6-bullet-w": { lote03: 1, lote04: 1, lote06: 1 },
+    "uvc-g6-ptz-b": { lote03: 6, lote04: 5, lote06: 6 },
+    "g6-ptz-corner-mount": { lote03: 6, lote04: 5, lote06: 6 },
+    "g5-ptz-corner-mount": { lote03: 0, lote04: 0, lote06: 0 },
+    "u-poe-plus-plus": { lote03: 6, lote04: 5, lote06: 6 },
+    "up-ai-port": { lote03: 6, lote04: 5, lote06: 8 },
+    "uacc-ai-port-rm": { lote03: 1, lote04: 1, lote06: 1 },
+    "rack-accessories": { lote03: 1, lote04: 1, lote06: 1 },
   }
   
   const mapping = itemHouseMapping[item.id]

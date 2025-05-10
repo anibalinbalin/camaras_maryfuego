@@ -72,12 +72,27 @@ const SecurityCoverageComparison: React.FC = () => {
             {/* Slider Control */}
             <div className="absolute top-0 bottom-0 w-0.5 bg-primary z-20" style={{ left: `${sliderPosition}%` }}>
               <button
-                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-white rounded-full shadow-md flex items-center justify-center cursor-ew-resize border border-primary/20"
+                type="button"
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-background dark:bg-zinc-800 rounded-full shadow-md flex flex-col items-center justify-center gap-1 cursor-ew-resize border border-primary/20"
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleMouseDown}
                 aria-label="Drag to compare camera coverage"
               >
-                <GripVertical className="h-4 w-4 text-primary" />
+                {/* Three dots for better visibility in both light and dark modes */}
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                </div>
               </button>
             </div>
 

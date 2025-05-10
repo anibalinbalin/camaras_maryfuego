@@ -1,4 +1,5 @@
 "use client"
+import { useState, useEffect } from "react"
 import HouseCard from "@/components/HouseCard"
 import { houses } from "@/lib/data"
 import { Cctv } from "lucide-react"
@@ -7,7 +8,34 @@ import { useTheme } from "next-themes"
 
 const Index = () => {
   const { theme } = useTheme()
-  const isLight = theme === "light"
+  const [mounted, setMounted] = useState(false)
+  
+  // Add mounted state to prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Default to no theme-specific styles during SSR
+  const isLight = mounted ? theme === "light" : false
+  
+  // Simple skeleton for SSR if needed
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1">
+          <SpotlightNewDemo />
+          <div id="security-plans" className="container px-4 md:px-6 pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Will be filled in after hydration */}
+            </div>
+          </div>
+        </div>
+        <footer className="border-t py-6 md:py-0">
+          {/* Footer content will appear after hydration */}
+        </footer>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen flex flex-col">

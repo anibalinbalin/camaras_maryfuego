@@ -92,7 +92,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
           ? "Esquina entrada y lateral." 
           : houseId === "house3" 
             ? "Se remueven las dos camaras actuales. Se instala una cámara angular para cubrir el acceso principal y lateral." 
-            : "Aqui cubrimnos la entrada y el lateral.",
+            : "Aquí cubrimos la entrada y el lateral.",
         image: `${imagePath}/${filenames[0]}${theme === "dark" ? "_night" : ""}.jpg`,
       },
       {
@@ -106,7 +106,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
           ? "Visión completa del lateral este con lente gran angular." 
           : houseId === "house3" 
             ? "Zona interna de la casa." 
-            : "Aqui cubrimos todo el lateral puesto el lente es gran angular.",
+            : "Aquí cubrimos todo el lateral puesto el lente es gran angular.",
         image: `${imagePath}/${filenames[1]}${theme === "dark" ? "_night" : ""}.jpg`,
       },
       {
@@ -131,7 +131,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
             ? "Esquina lateral contra el nido" 
             : "Lateral interno",
         content: houseId === "house2" 
-          ? "Esta camara es removida, el tendido se usará para la siguiente cámara." 
+          ? "Esta cámara es removida, el tendido se usará para la siguiente cámara." 
           : houseId === "house3" 
             ? "Entrada contra la ruta y lateral hacia el nido." 
             : "Deck.",
@@ -162,7 +162,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
           ? "En el parrillero contra la playa." 
           : houseId === "house3" 
             ? "Cámara retirada para cubrir toda la playa y el lateral." 
-            : "Su cable se utilizará para la siguiente cámara en el paso 7.",
+            : "El cable se utilizará para la siguiente cámara en el paso 7.",
         image: `${imagePath}/${filenames[5]}${theme === "dark" ? "_night" : ""}.jpg`,
       },
       {
@@ -175,7 +175,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
         content: houseId === "house2" 
           ? "Nueva ubicación para curbir la zona de piscina y acceso lateral." 
           : houseId === "house3" 
-            ? "Se remueve tambien la cámara actual." 
+            ? "Se remueve también la cámara actual." 
             : "Abarca toda el área de la entrada. Asi mismo la cámara del piso superior es removida y remplazada.",
         image: `${imagePath}/${filenames[6]}${theme === "dark" ? "_night" : ""}.jpg`,
       },
@@ -190,7 +190,7 @@ export function SecurityCameraInstallationSteps({ houseId }: { houseId?: string 
           ? "Cubre toda la zona de abajo." 
           : houseId === "house3" 
             ? "Para cubrir la zona lateral contra el medio." 
-            : "Esta camara es para complementar y brindar redundancia a toda el area de la entrada. Cámara anterior es removida.",
+            : "Esta cámara es para complementar y brindar redundancia a toda el área de la entrada. La cámara anterior es removida.",
         image: `${imagePath}/${filenames[7]}${theme === "dark" ? "_night" : ""}.jpg`,
       },
       {

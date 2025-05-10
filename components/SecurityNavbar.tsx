@@ -34,22 +34,22 @@ export default function SecurityNavbar() {
     {
       name: "Casa Lote 03",
       link: "/house/house1",
-      icon: <Building className="h-4 w-4" />,
+      icon: <Building className="h-4 w-4 text-foreground" />,
     },
     {
       name: "Casa Lote 04",
       link: "/house/house2",
-      icon: <Building2 className="h-4 w-4" />,
+      icon: <Building2 className="h-4 w-4 text-foreground" />,
     },
     {
       name: "Casa Lote 06",
       link: "/house/house3",
-      icon: <Warehouse className="h-4 w-4" />,
+      icon: <Warehouse className="h-4 w-4 text-foreground" />,
     },
     {
       name: "Inversión",
       link: "/inversion",
-      icon: <Calculator className="h-4 w-4" />,
+      icon: <Calculator className="h-4 w-4 text-foreground" />,
     },
   ]
 
@@ -107,7 +107,7 @@ export default function SecurityNavbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="relative flex items-center gap-3 w-full py-2.5 px-3 rounded-lg text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
                   >
-                    <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10">
+                    <div className="flex h-7 w-7 items-center justify-center">
                       {item.icon}
                     </div>
                     <span className="font-medium">{item.name}</span>
@@ -124,7 +124,7 @@ export default function SecurityNavbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative flex items-center gap-3 w-full py-2.5 px-3 rounded-lg text-foreground transition-colors hover:bg-foreground/5 active:bg-foreground/10"
               >
-                <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10">
+                <div className="flex h-7 w-7 items-center justify-center">
                   {navItems[3].icon}
                 </div>
                 <span className="font-medium">{navItems[3].name}</span>

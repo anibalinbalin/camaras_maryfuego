@@ -9,6 +9,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  reactStrictMode: true,
+  experimental: {
+    allowedDevOrigins: ['localhost', '127.0.0.1', '192.168.1.9', '192.168.1.*'],
+    optimizeCss: true,
+    scrollRestoration: true,
+  },
 }
 
 export default nextConfig

@@ -5,8 +5,6 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { GripVertical } from "lucide-react"
-import { DotPlacementComponent as CasaArmandoBad } from "@/components/floorplans/Armando/CasaArmandoBad"
-import { DotPlacementComponent as CasaArmandoGood } from "@/components/floorplans/Armando/CasaArmandoGood"
 import { DotPlacementComponent as CasaNidoBad } from "@/components/floorplans/Nido/CasaNidoBad"
 import { DotPlacementComponent as CasaNidoGood } from "@/components/floorplans/Nido/CasaNidoGood"
 import { cn } from "@/lib/utils"
@@ -101,8 +99,24 @@ const SecurityMapComparison = ({
     }
   }, [isDragging])
 
-  const BadCoverageComponent = type === "armando" ? CasaArmandoBad : CasaNidoBad
-  const GoodCoverageComponent = type === "armando" ? CasaArmandoGood : CasaNidoGood
+  const renderArmandoImage = (
+    <img
+      src="/images/houses/armando/coverage_comparison/house1_bad.png"
+      alt="Cobertura Actual"
+      className="w-full"
+    />
+  )
+
+  const renderArmandoGoodImage = (
+    <img
+      src="/images/houses/armando/coverage_comparison/house1_good.png"
+      alt="Cobertura Propuesta"
+      className="w-full"
+    />
+  )
+
+  const BadCoverageComponent = type === "armando" ? () => renderArmandoImage : CasaNidoBad
+  const GoodCoverageComponent = type === "armando" ? () => renderArmandoGoodImage : CasaNidoGood
 
   return (
     <Card className="overflow-hidden">
@@ -131,7 +145,11 @@ const SecurityMapComparison = ({
                 clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
               }}
             >
-              <BadCoverageComponent className="w-full" />
+              {type === "armando" ? (
+                renderArmandoImage
+              ) : (
+                <BadCoverageComponent className="w-full" />
+              )}
               {showLabels && (
                 <div className="absolute top-2 left-2 z-30 bg-black/60 text-white text-xs px-2 py-1 rounded">
                   Cobertura Actual
@@ -141,7 +159,11 @@ const SecurityMapComparison = ({
 
             {/* Proposed Coverage (Good) */}
             <div className="relative z-0">
-              <GoodCoverageComponent className="w-full" />
+              {type === "armando" ? (
+                renderArmandoGoodImage
+              ) : (
+                <GoodCoverageComponent className="w-full" />
+              )}
               {showLabels && (
                 <div className="absolute top-2 right-2 z-30 bg-black/60 text-white text-xs px-2 py-1 rounded">
                   Cobertura Propuesta
@@ -157,12 +179,26 @@ const SecurityMapComparison = ({
               <button
                 type="button"
                 className={cn(
-                  "absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-white rounded-full shadow-md flex items-center justify-center cursor-ew-resize border border-primary/20 transition-all duration-200",
+                  "absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-12 bg-background dark:bg-zinc-800 rounded-full shadow-md flex flex-col items-center justify-center gap-1 cursor-ew-resize border border-primary/20 transition-all duration-200",
                   isDragging ? "scale-110" : "scale-100 hover:scale-105",
                 )}
                 aria-label="Drag to compare camera coverage"
               >
-                <GripVertical className="h-4 w-4 text-primary" />
+                {/* Three dots for better visibility in both light and dark modes */}
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                    <div className="w-1 h-1 rounded-full bg-primary/80 dark:bg-primary" />
+                  </div>
+                </div>
               </button>
             </div>
           </div>

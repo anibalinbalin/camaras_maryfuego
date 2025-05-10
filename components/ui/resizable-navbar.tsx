@@ -275,7 +275,7 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-foreground"
     >
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg">
         <IconHome className="h-5 w-5 text-primary" />
       </div>
     </a>

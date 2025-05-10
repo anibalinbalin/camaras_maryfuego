@@ -7,7 +7,7 @@ export default function HeroCard() {
   return (
     <div className="flex py-20 items-center justify-center antialiased">
       <GlowingStarsBackgroundCard className="max-w-md">
-        <GlowingStarsTitle>Seguridad Ubiquiti.</GlowingStarsTitle>
+        <GlowingStarsTitle>Seguridad: Mar y Fuego.</GlowingStarsTitle>
         <div className="flex justify-between items-end">
           <GlowingStarsDescription>Propuesta de seguridad con cámaras por AI, reduncia, y 4k.</GlowingStarsDescription>
           <Link href="#security-plans">

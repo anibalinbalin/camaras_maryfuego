@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Home } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface ChapterNavigationProps {
   currentChapter: number
@@ -12,6 +13,12 @@ interface ChapterNavigationProps {
 }
 
 const ChapterNavigation = ({ currentChapter, totalChapters, onPrevious, onNext }: ChapterNavigationProps) => {
+  const router = useRouter()
+  
+  const handleHomeClick = () => {
+    router.push("/")
+  }
+  
   return (
     <Card className="p-3 sm:p-4 mt-4">
       <div className="flex items-center justify-between">
@@ -44,9 +51,17 @@ const ChapterNavigation = ({ currentChapter, totalChapters, onPrevious, onNext }
           </Button>
         )}
         
-        {/* Add an empty div to maintain layout if button is hidden */}
+        {/* Replace empty div with Home button when on the last chapter */}
         {currentChapter === totalChapters && (
-          <div className="w-9 sm:w-[115px]" /> 
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handleHomeClick}
+            className="h-9 w-9 sm:h-10 sm:w-auto sm:px-4 flex items-center gap-2"
+            aria-label="Home"
+          >
+            <Home className="h-4 w-4" />
+          </Button>
         )}
       </div>
     </Card>
