@@ -44,7 +44,7 @@ export default function Inversion() {
                   {totalInvestment.note}
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Incluye todos los equipos necesarios, mano de obra, y honorarios.
+                  Incluye los equipos, mano de obra, y honorarios.
                 </p>
               </CardContent>
             </Card>
