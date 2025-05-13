@@ -31,7 +31,7 @@ export default function SecurityBenefitsGlowingGrid() {
           area="md:[grid-area:2/1/3/13] xl:[grid-area:1/9/2/13]"
           icon={<Zap className="h-4 w-4 text-primary" />}
           title="UniFi Cloud Key Gen2 Plus – Smart Video Hub"
-          description="Para administrar todas tus cámaras y sensores desde un solo equipo con almacenamiento local, acceso remoto y notificaciones de eventos."
+          description="Para administrar todas las cámaras y sensores desde un solo gateway, con almacenamiento local, acceso remoto y notificaciones de eventos."
           imageSrc="/images/hardware/alpha/UCG-Ultra_alpha.png"
         />
 
@@ -39,7 +39,7 @@ export default function SecurityBenefitsGlowingGrid() {
           area="md:[grid-area:3/1/4/7] xl:[grid-area:2/1/3/7]"
           icon={<Lock className="h-4 w-4 text-primary" />}
           title="UniFi NVR Pro – Enterprise-Scale Video Storage"
-          description="Para almacenar, administrar y acceder a las grabaciones de las cámaras, soporte RAID e integración con UniFi Protect para administracion remota."
+          description="Para almacenar, administrar y acceder a las grabaciones de las cámaras, con RAID e integración con UniFi Protect para administración remota."
           imageSrc="/images/hardware/alpha/UniFi UNVR_alpha.png"
         />
 
@@ -47,7 +47,7 @@ export default function SecurityBenefitsGlowingGrid() {
           area="md:[grid-area:3/7/4/13] xl:[grid-area:2/7/3/13]"
           icon={<Smartphone className="h-4 w-4 text-primary" />}
           title="UniFi G5 PTZ – Precision Pan-Tilt-Zoom Surveillance"
-          description="Para cubrir las zonas mas amplias. La óptica es motorizada, también 4K, zoom de 22x y seguimiento por IA."
+          description="Para cubrir las zonas mas amplias como esquinas o zonas abiertas. La óptica es motorizada, también 4K, zoom de 22x y seguimiento por IA."
           imageSrc="/images/hardware/alpha/UVC-G5-PTZ_alpha.png"
         />
 
@@ -56,7 +56,7 @@ export default function SecurityBenefitsGlowingGrid() {
           area="md:[grid-area:4/1/5/7] xl:[grid-area:3/1/4/5]"
           icon={<Eye className="h-4 w-4 text-primary" />}
           title="G5 PTZ – Full-Range Control, Elevated"
-          description="Estas cámaras son panorámicas y con zoom de 22x óptico, seguimiento de objetos por IA. Es clave para las zonas amplias."
+          description="Estas cámaras son panorámicas y con zoom de 22x óptico, seguimiento de objetos por IA."
           imageSrc="/images/hardware/alpha/G5 PTZ Corner Mount_alpha.png"
         />
 
